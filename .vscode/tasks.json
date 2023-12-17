@@ -1,0 +1,10 @@
+{
+    "version": "2.0.0",    
+    "windows": {
+        "command": "explorer.exe"
+    },
+    "linux": {
+        "command": "firefox"
+    },
+    "args": ["index.html"]
+}
