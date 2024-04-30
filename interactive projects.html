@@ -33,7 +33,7 @@
             var formData = new FormData();
             formData.append('image', document.getElementById('image-upload').files[0]);
 
-            fetch('http://127.0.0.1:5000/process_image', {
+            fetch('http://34.28.200.156/process_image', {
                 method: 'POST',
                 body: formData
             })
