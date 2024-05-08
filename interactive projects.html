@@ -20,12 +20,31 @@
             </ul>
         </nav>
         <section id="image captioning">
-            <form id="upload-form" enctype="multipart/form-data" action="https://getprediction-uqagmhgmla-el.a.run.app" method="post">
-                <input type="file" id="image-upload" name="file" accept="image/*" required>
+            <form id="upload-form" enctype="multipart/form-data">
+                <input type="file" id="image-upload" accept="image/*" required>
                 <button type="submit">Upload Image</button>
             </form>
             <div id="output"></div>
         </section>
     </div>
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData();
+            formData.append('file', document.getElementById('image-upload').files[0]);
+
+            fetch('https://getprediction-uqagmhgmla-el.a.run.app', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('output').innerText = JSON.stringify(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
 </body>
 </html>
