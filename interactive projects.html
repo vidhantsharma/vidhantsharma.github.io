@@ -39,7 +39,7 @@
             })
             .then(response => response.json())
             .then(data => {
-                document.getElementById('output').innerText = JSON.stringify(data);
+                document.getElementById('output').innerText = "Prediction: " + data.prediction;
             })
             .catch(error => {
                 console.error('Error:', error);
